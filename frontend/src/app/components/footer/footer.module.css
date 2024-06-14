@@ -1,0 +1,42 @@
+
+.nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  padding: 0.5rem;
+  background-color: rgb(var(--foreground-rgb));
+  position: relative;
+
+}
+
+.nav::before {
+  content: "";
+  position: absolute;
+  top: -0.5rem; /* Should match the padding-top value of the footer */
+  left: 0;
+  right: 0;
+  height: 0.5rem; /* Should match the padding-top value of the footer */
+  background-color: inherit;
+  border-top-left-radius: 200% 30px;
+  border-top-right-radius: 200% 30px;
+}
+
+.nav a {
+  width: 3.2rem;
+  height: 3.2rem;
+  color: rgb(var(--background-start-rgb));
+  border-radius: 9999px;
+  display: flex;
+  justify-content: center;
+}
+
+.nav a.active {
+  background-color: grey
+}
+
+.nav svg {
+  align-self: center;
+  width: 1.75rem;
+  height: 1.75rem !important
+}

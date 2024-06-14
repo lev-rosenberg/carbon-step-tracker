@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 59, 54, 50;
+  --foreground-contrast-rgb: 235, 255, 237;
+  --background-start-rgb: 235, 255, 237;
+  --background-end-rgb: 185, 232, 189;
+  --desktop-background: 31, 31, 31;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+    */
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background-color: rgb(var(--desktop-background));
+}
+
+h1 {
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100dvh;
+  background: linear-gradient(
+    to bottom,
+    rgb(var(--background-start-rgb)),
+    rgb(var(--background-end-rgb))
+  );
+}
+
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@media (min-width: 640px) {
+  body {
+    width: 24rem;
+    margin: 0 auto;
+  }
+}
