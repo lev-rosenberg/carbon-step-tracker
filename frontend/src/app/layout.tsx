@@ -27,7 +27,6 @@ export default function RootLayout({
         try {
           const result = await axios.post(url, data);
           if (result.data === "valid token") {
-            console.log("valid token");
             router.push("/home");
             dispatch({ type: "SET_LOGGED_IN", payload: true });
           }

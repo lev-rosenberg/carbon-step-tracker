@@ -13,6 +13,7 @@ export default function LoginControl({
   const { dispatch, state } = useContext(Context);
   const { loggedIn } = state;
   const router = useRouter();
+  const token = localStorage.getItem("carbon-auth-token");
 
   useEffect(() => {
     const token = localStorage.getItem("carbon-auth-token");
@@ -23,7 +24,6 @@ export default function LoginControl({
         try {
           const result = await axios.post(url, data);
           if (result.data === "valid token") {
-            console.log("valid token");
             router.push("/home");
             dispatch({ type: "SET_LOGGED_IN", payload: true });
           }
@@ -49,13 +49,13 @@ export default function LoginControl({
 
   return (
     <div className="app">
-      {loggedIn && (
+      {token && (
         <button className="text-xs self-end p-2" onClick={logout}>
           Logout
         </button>
       )}
       {children}
-      {loggedIn && <Footer />}
+      {token && <Footer />}
     </div>
   );
 }
