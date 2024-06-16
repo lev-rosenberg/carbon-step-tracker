@@ -14,7 +14,6 @@ export default function LoginControl({
   const { loggedIn } = state;
   const pathname = usePathname();
   const router = useRouter();
-  const token = localStorage.getItem("carbon-auth-token");
 
   useEffect(() => {
     const token = localStorage.getItem("carbon-auth-token");
@@ -57,13 +56,13 @@ export default function LoginControl({
 
   return (
     <div className="app">
-      {token && (
+      {loggedIn && (
         <button className="text-xs self-end m-1" onClick={logout}>
           Logout
         </button>
       )}
       {children}
-      {token && <Footer />}
+      {loggedIn && <Footer />}
     </div>
   );
 }
