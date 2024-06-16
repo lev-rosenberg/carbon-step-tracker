@@ -27,11 +27,23 @@ body {
 h1 {
   font-size: 1.5rem;
   font-weight: 600;
+  margin-top: 1rem;
 }
 
 h2 {
   font-size: 1.25rem;
   font-weight: 500;
+}
+
+button {
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  background-color: #688459;
+  color: rgb(var(--foreground-contrast-rgb));
+  border: none;
+  cursor: pointer;
 }
 
 .app {

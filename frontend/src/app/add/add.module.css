@@ -1,0 +1,59 @@
+.add {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    height: 100%;
+}
+
+.add .emissionButtons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 3rem;
+}
+
+.add .addForm {
+  display: flex;
+  flex-direction: column;
+  /* align-items: flex-start; */
+  gap: 1rem;
+  width: 100%;
+  margin-top: 1rem;
+  padding: 1rem;
+}
+
+.add .addForm .formSection {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.add .addForm .date {
+  display: flex;
+  gap: 5px;
+  width: 100%;
+}
+
+.add .addForm label {
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.add .addForm input {
+  width: 100%;
+  padding: 0.5rem 0.8rem;
+  border-radius: 5px;
+  border: 1px solid #d1d5db;
+}
+
+.add .addForm select {
+  width: 100%;
+  padding: 0.5rem 0.8rem;
+  border-radius: 5px;
+  border: 1px solid #d1d5db;
+}
+
+button.active {
+  background-color: rgb(var(--foreground-rgb));
+}

@@ -18,7 +18,7 @@ interface PiChartProps {
 }
 
 export default function PiChart({ data }: PiChartProps) {
-  const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
+  const COLORS = ["#582d18", "#36281c", "#cc6e0f"];
   console.log(data);
   const isDataValid = data.some((entry) => entry.value > 0);
   if (!isDataValid) {

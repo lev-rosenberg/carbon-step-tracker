@@ -1,6 +1,6 @@
 "use client";
 import React, { useContext, useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import axios from "axios";
 import { Context } from "../appContext";
 import Footer from "./footer/Footer";
@@ -12,6 +12,7 @@ export default function LoginControl({
 }) {
   const { dispatch, state } = useContext(Context);
   const { loggedIn } = state;
+  const pathname = usePathname();
   const router = useRouter();
   const token = localStorage.getItem("carbon-auth-token");
 
@@ -24,22 +25,29 @@ export default function LoginControl({
         try {
           const result = await axios.post(url, data);
           if (result.data === "valid token") {
-            router.push("/home");
+            if (pathname === "/login") {
+              router.push("/home");
+            }
             dispatch({ type: "SET_LOGGED_IN", payload: true });
+          } else {
+            if (pathname !== "/login") {
+              logout();
+            }
           }
         } catch (error) {
           console.error("Error checking token", error);
-          router.push("/login");
-          dispatch({ type: "SET_LOGGED_IN", payload: false });
+          if (pathname !== "/login") {
+            logout();
+          }
         }
       } else {
-        console.log("no token");
-        router.push("/login");
-        dispatch({ type: "SET_LOGGED_IN", payload: false });
+        if (pathname !== "/login") {
+          logout();
+        }
       }
     }
     checkAuthToken();
-  }, [router, dispatch, loggedIn]);
+  }, []);
 
   function logout() {
     localStorage.removeItem("carbon-auth-token");
@@ -50,7 +58,7 @@ export default function LoginControl({
   return (
     <div className="app">
       {token && (
-        <button className="text-xs self-end p-2" onClick={logout}>
+        <button className="text-xs self-end m-1" onClick={logout}>
           Logout
         </button>
       )}
