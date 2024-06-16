@@ -14,7 +14,7 @@ export default function Login() {
   const router = useRouter();
 
   async function handleLogin() {
-    const data = { username: username, password: password, duration: 30 };
+    const data = { username: username, password: password, duration: 720 };
     console.log("login clicked");
     try {
       const result = await axios.post(url, data);

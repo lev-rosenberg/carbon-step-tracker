@@ -9,6 +9,21 @@ export default function TravelForm() {
   return (
     <form className={styles.addForm}>
       <div className={styles.formSection}>
+        <label htmlFor="travelDistance">Travel distance (mi):</label>
+        <input
+          type="number"
+          id="travelDistance"
+          name="travelDistance"
+          placeholder="Ex. 12.4"
+          onChange={(e) =>
+            dispatch({
+              type: "SET_TRAVEL_DATA",
+              payload: { ...travelData, distance: parseFloat(e.target.value) },
+            })
+          }
+        />
+      </div>
+      <div className={styles.formSection}>
         <label htmlFor="travelVehicle">Vehicle type:</label>
         <select
           id="travelVehicle"
@@ -29,21 +44,6 @@ export default function TravelForm() {
           <option value="train">Train</option>
           <option value="plane">Plane</option>
         </select>
-      </div>
-      <div className={styles.formSection}>
-        <label htmlFor="travelDistance">Travel distance (mi):</label>
-        <input
-          type="number"
-          id="travelDistance"
-          name="travelDistance"
-          placeholder="Ex. 12.4"
-          onChange={(e) =>
-            dispatch({
-              type: "SET_TRAVEL_DATA",
-              payload: { ...travelData, distance: parseFloat(e.target.value) },
-            })
-          }
-        />
       </div>
       <div className={styles.formSection}>
         <label htmlFor="travelDate">Travel Date</label>
