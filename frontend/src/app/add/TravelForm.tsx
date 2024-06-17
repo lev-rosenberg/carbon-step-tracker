@@ -15,6 +15,7 @@ export default function TravelForm() {
           id="travelDistance"
           name="travelDistance"
           placeholder="Ex. 12.4"
+          value={travelData.distance ? travelData.distance : ""}
           onChange={(e) =>
             dispatch({
               type: "SET_TRAVEL_DATA",
@@ -28,13 +29,13 @@ export default function TravelForm() {
         <select
           id="travelVehicle"
           name="travelVehicle"
+          value={travelData.vehicle ? travelData.vehicle : ""}
           onChange={(e) =>
             dispatch({
               type: "SET_TRAVEL_DATA",
               payload: { ...travelData, vehicle: e.target.value },
             })
           }
-          defaultValue=""
         >
           <option value="" disabled>
             Select...
@@ -51,7 +52,7 @@ export default function TravelForm() {
           <select
             id="travelDay"
             name="travelDay"
-            defaultValue=""
+            value={travelData.day ? travelData.day : ""}
             onChange={(e) =>
               dispatch({
                 type: "SET_TRAVEL_DATA",
@@ -71,7 +72,7 @@ export default function TravelForm() {
           <select
             id="travelMonth"
             name="travelMonth"
-            defaultValue=""
+            value={travelData.month ? travelData.month : ""}
             onChange={(e) =>
               dispatch({
                 type: "SET_TRAVEL_DATA",
@@ -104,7 +105,7 @@ export default function TravelForm() {
           <select
             id="travelYear"
             name="travelYear"
-            defaultValue=""
+            value={travelData.year ? travelData.year : ""}
             onChange={(e) =>
               dispatch({
                 type: "SET_TRAVEL_DATA",

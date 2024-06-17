@@ -11,6 +11,7 @@ type InitialStateProps = {
   };
   utilityData: {
     kWh: number;
+    state: string;
     startdate: { day: number; month: number; year: number };
     enddate: { day: number; month: number; year: number };
   };
@@ -20,6 +21,7 @@ const initialState = {
   travelData: { vehicle: "", distance: 0, day: 0, month: 0, year: 0 },
   utilityData: {
     kWh: 0,
+    state: "",
     startdate: { day: 0, month: 0, year: 0 },
     enddate: { day: 0, month: 0, year: 0 },
   },

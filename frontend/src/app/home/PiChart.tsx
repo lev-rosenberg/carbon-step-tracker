@@ -18,11 +18,15 @@ interface PiChartProps {
 }
 
 export default function PiChart({ data }: PiChartProps) {
-  const COLORS = ["#582d18", "#36281c", "#cc6e0f"];
+  const COLORS = ["#582d18", "#cc6e0f", "#36281c"];
   console.log(data);
   const isDataValid = data.some((entry) => entry.value > 0);
   if (!isDataValid) {
-    return <div>No data available</div>;
+    return (
+      <ResponsiveContainer width="100%" height="100%">
+        <PieChart />
+      </ResponsiveContainer>
+    );
   }
   return (
     <ResponsiveContainer width="100%" height="100%">

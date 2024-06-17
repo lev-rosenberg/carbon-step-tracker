@@ -5,12 +5,14 @@
     justify-content: flex-start;
     text-align: center;
     height: 100%;
+    padding: 0 1rem;
+    overflow: scroll;
 }
 
 .add .emissionButtons {
   display: flex;
   gap: 1rem;
-  margin-top: 3rem;
+  margin-top: 2rem;
 }
 
 .add .addForm {
@@ -19,8 +21,7 @@
   /* align-items: flex-start; */
   gap: 1rem;
   width: 100%;
-  margin-top: 1rem;
-  padding: 1rem;
+  margin: 1rem 0;
 }
 
 .add .addForm .formSection {
@@ -56,4 +57,12 @@
 
 button.active {
   background-color: rgb(var(--foreground-rgb));
+}
+
+.add .error {
+  padding-top: 0.5rem;
+  padding-bottom: 0.75rem;
+  color: red;
+  font-size: 0.8rem;
+  height: 0.8rem;
 }

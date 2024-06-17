@@ -4,24 +4,40 @@
   gap: 1rem;
   align-items: center;
   justify-content: center;
-  padding: 25dvh 1.5rem 0 1.5rem;
+  padding: 0 1.5rem;
   width: 100%;
+  height: 100%;
+}
+
+.login h1 {
+  margin-bottom: 2rem;
 }
 
 .login input {
   width: 100%;
   padding: 0.5rem 0.8rem;
-  border-radius: 5px;
-  border: 1px solid #d1d5db;
+  background-color: transparent;
+  border-bottom: 1.5px solid rgba(var(--foreground-rgb), 0.5);
+  font-size: 14px;
+  outline: none;
 }
 
+.login input::placeholder {
+  color: rgba(var(--foreground-rgb), 0.5);
+}
+
+.login input:focus {
+  border-bottom: 1.5px solid rgb(var(--foreground-rgb));
+}
+
+
 .login button { 
-  width: 8rem;
+  width: 100%;
   padding: 0.5rem 0.8rem;
-  border-radius: 5px;
-  border: 1px solid #d1d5db;
+  border-radius: 9999px;
   background-color: rgb(var(--foreground-rgb));
   color: rgb(var(--foreground-contrast-rgb));
+  margin-top: 1rem;
 }
 
 .login .error {

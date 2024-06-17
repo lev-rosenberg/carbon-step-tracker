@@ -52,12 +52,13 @@ export default function Login() {
           placeholder="Password"
           onChange={(e) => setPassword(e.target.value)}
         />
+
+        <button onClick={handleLogin}>Login</button>
         <div className={styles.error}>
           {error && (
             <p>Login failed. Please check credentials and try again.</p>
           )}
         </div>
-        <button onClick={handleLogin}>Login</button>
       </form>
     </div>
   );

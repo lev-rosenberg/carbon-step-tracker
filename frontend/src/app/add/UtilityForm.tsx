@@ -15,6 +15,7 @@ export default function UtilityForm() {
           id="kWh"
           name="kWh"
           placeholder="Ex. 32.5"
+          value={utilityData.kWh ? utilityData.kWh : ""}
           onChange={(e) =>
             dispatch({
               type: "SET_UTILITY_DATA",
@@ -24,12 +25,87 @@ export default function UtilityForm() {
         />
       </div>
       <div className={styles.formSection}>
+        <label htmlFor="state">State:</label>
+        <select
+          id="state"
+          name="state"
+          value={utilityData.state ? utilityData.state : ""}
+          onChange={(e) =>
+            dispatch({
+              type: "SET_UTILITY_DATA",
+              payload: { ...utilityData, state: e.target.value },
+            })
+          }
+        >
+          <option value="" disabled>
+            Select...
+          </option>
+          {[
+            // List of US states abbreviated
+            "AL",
+            "AK",
+            "AZ",
+            "AR",
+            "CA",
+            "CO",
+            "CT",
+            "DE",
+            "FL",
+            "GA",
+            "HI",
+            "ID",
+            "IL",
+            "IN",
+            "IA",
+            "KS",
+            "KY",
+            "LA",
+            "ME",
+            "MD",
+            "MA",
+            "MI",
+            "MN",
+            "MS",
+            "MO",
+            "MT",
+            "NE",
+            "NV",
+            "NH",
+            "NJ",
+            "NM",
+            "NY",
+            "NC",
+            "ND",
+            "OH",
+            "OK",
+            "OR",
+            "PA",
+            "RI",
+            "SC",
+            "SD",
+            "TN",
+            "TX",
+            "UT",
+            "VT",
+            "VA",
+            "WA",
+            "WV",
+            "WI",
+            "WY",
+          ].map((state) => (
+            <option key={state} value={state}>
+              {state}
+            </option>
+          ))}
+        </select>
+      </div>
+      <div className={styles.formSection}>
         <label htmlFor="billStartDate">Bill Start Date</label>
         <div className={styles.date}>
           <select
             id="billStartDay"
             name="billStartDay"
-            defaultValue=""
+            value={utilityData.startdate.day ? utilityData.startdate.day : ""}
             onChange={(e) =>
               dispatch({
                 type: "SET_UTILITY_DATA",
@@ -55,7 +131,9 @@ export default function UtilityForm() {
           <select
             id="billStartMonth"
             name="billStartMonth"
-            defaultValue=""
+            value={
+              utilityData.startdate.month ? utilityData.startdate.month : ""
+            }
             onChange={(e) =>
               dispatch({
                 type: "SET_UTILITY_DATA",
@@ -94,7 +172,7 @@ export default function UtilityForm() {
           <select
             id="billStartYear"
             name="billStartYear"
-            defaultValue=""
+            value={utilityData.startdate.year ? utilityData.startdate.year : ""}
             onChange={(e) =>
               dispatch({
                 type: "SET_UTILITY_DATA",
@@ -125,7 +203,7 @@ export default function UtilityForm() {
           <select
             id="billEndDay"
             name="billEndDay"
-            defaultValue=""
+            value={utilityData.enddate.day ? utilityData.enddate.day : ""}
             onChange={(e) =>
               dispatch({
                 type: "SET_UTILITY_DATA",
@@ -151,7 +229,7 @@ export default function UtilityForm() {
           <select
             id="billEndMonth"
             name="billEndMonth"
-            defaultValue=""
+            value={utilityData.enddate.month ? utilityData.enddate.month : ""}
             onChange={(e) =>
               dispatch({
                 type: "SET_UTILITY_DATA",
@@ -190,7 +268,7 @@ export default function UtilityForm() {
           <select
             id="billEndYear"
             name="billEndYear"
-            defaultValue=""
+            value={utilityData.enddate.year ? utilityData.enddate.year : ""}
             onChange={(e) =>
               dispatch({
                 type: "SET_UTILITY_DATA",

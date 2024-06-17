@@ -57,6 +57,7 @@ button {
     rgb(var(--background-start-rgb)),
     rgb(var(--background-end-rgb))
   );
+  overflow: clip;
 }
 
 
