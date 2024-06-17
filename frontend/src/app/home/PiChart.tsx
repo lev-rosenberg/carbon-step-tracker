@@ -19,7 +19,6 @@ interface PiChartProps {
 
 export default function PiChart({ data }: PiChartProps) {
   const COLORS = ["#582d18", "#cc6e0f", "#36281c"];
-  console.log(data);
   const isDataValid = data.some((entry) => entry.value > 0);
   if (!isDataValid) {
     return (
@@ -45,7 +44,10 @@ export default function PiChart({ data }: PiChartProps) {
             <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
           ))}
         </Pie>
-        <Tooltip />
+        <Tooltip
+          formatter={(value) => `${value} kg`}
+          labelFormatter={(value) => `Category: ${value}`}
+        />
         <Legend verticalAlign="bottom" height={36} />
       </PieChart>
     </ResponsiveContainer>

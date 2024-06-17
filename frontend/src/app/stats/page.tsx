@@ -1,3 +1,4 @@
-export default function Stats() {
-  return <>STATS</>;
+import Stats from "./Stats";
+export default function StatsPage() {
+  return <Stats />;
 }
