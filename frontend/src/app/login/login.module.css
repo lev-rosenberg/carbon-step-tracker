@@ -20,6 +20,8 @@
   border-bottom: 1.5px solid rgba(var(--foreground-rgb), 0.5);
   font-size: 14px;
   outline: none;
+  border-radius: none;
+  appearance: none;
 }
 
 .login input::placeholder {
