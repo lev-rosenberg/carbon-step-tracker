@@ -14,6 +14,10 @@ export default function Login() {
   const router = useRouter();
 
   async function handleLogin() {
+    if (!username || !password) {
+      setError("Please enter a username and password.");
+      return;
+    }
     const url = process.env.NEXT_PUBLIC_BASE_URL + "/auth";
     const data = { username: username, password: password, duration: 720 };
     try {
@@ -32,6 +36,10 @@ export default function Login() {
   }
 
   async function handleSignup() {
+    if (!username || !password) {
+      setError("Please enter a username and password.");
+      return;
+    }
     const url = process.env.NEXT_PUBLIC_BASE_URL + "/signup";
     const data = { username: username, password: password };
     try {
