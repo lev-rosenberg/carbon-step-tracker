@@ -42,10 +42,18 @@
   margin-top: 1rem;
 }
 
-.login .error {
-  color: red;
+.login p {
   font-size: 0.8rem;
   height: 0.8rem;
+  text-align: center;
+}
+
+.login p.error {
+  color: red;
+}
+
+.login p.signupSuccess {
+  color: green;
 }
 
 .login .form {
@@ -55,4 +63,11 @@
   justify-content: center;
   gap: 1rem;
   width: 100%;
+}
+
+.login button.signup {
+  margin-top: 0;
+  color: rgb(var(--foreground-rgb));
+  background-color: transparent;
+  border: 1.5px solid rgb(var(--foreground-rgb));
 }
