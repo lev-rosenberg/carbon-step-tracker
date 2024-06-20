@@ -9,11 +9,13 @@ export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const [signup, setSignup] = useState(false); //
+  const [signupSuccess, setSignupSuccess] = useState(false); //
   const { dispatch } = useContext(Context);
   const router = useRouter();
 
   async function handleLogin() {
+    setError("");
+    setSignupSuccess(false);
     if (!username || !password) {
       setError("Please enter a username and password.");
       return;
@@ -36,6 +38,8 @@ export default function Login() {
   }
 
   async function handleSignup() {
+    setError("");
+    setSignupSuccess(false);
     if (!username || !password) {
       setError("Please enter a username and password.");
       return;
@@ -46,11 +50,14 @@ export default function Login() {
       const result = await axios.post(url, data);
       if (result.status === 200) {
         setError("");
-        setSignup(true);
+        setSignupSuccess(true);
+      } else {
+        setError("Signup failed. Please try again.");
+        setSignupSuccess(false);
       }
     } catch (error) {
       setError("Signup failed. Please try again.");
-      setSignup(false);
+      setSignupSuccess(false);
     }
   }
 
@@ -61,7 +68,6 @@ export default function Login() {
         className={styles.form}
         onSubmit={(e) => {
           e.preventDefault();
-          handleLogin();
         }}
       >
         <input
@@ -82,7 +88,7 @@ export default function Login() {
       </form>
 
       <div>
-        {signup && (
+        {signupSuccess && (
           <p className={styles.signupSuccess}>
             Signup successful. Please login with your new credentials.
           </p>
