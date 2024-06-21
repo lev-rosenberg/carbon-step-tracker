@@ -2,6 +2,7 @@
 import React, { useState, useContext } from "react";
 import { useRouter } from "next/navigation";
 import { Context } from "../appContext";
+import Loading from "../components/Loading";
 import styles from "./login.module.css";
 import axios from "axios";
 
@@ -9,6 +10,7 @@ export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
   const [signupSuccess, setSignupSuccess] = useState(false); //
   const { dispatch } = useContext(Context);
   const router = useRouter();
@@ -20,6 +22,7 @@ export default function Login() {
       setError("Please enter a username and password.");
       return;
     }
+    setLoading(true);
     const url = process.env.NEXT_PUBLIC_BASE_URL + "/auth";
     const data = { username: username, password: password, duration: 720 };
     try {
@@ -35,6 +38,7 @@ export default function Login() {
     } catch (error) {
       setError("Login failed. Please check credentials and try again.");
     }
+    setLoading(false);
   }
 
   async function handleSignup() {
@@ -44,6 +48,7 @@ export default function Login() {
       setError("Please enter a username and password.");
       return;
     }
+    setLoading(true);
     const url = process.env.NEXT_PUBLIC_BASE_URL + "/signup";
     const data = { username: username, password: password };
     try {
@@ -59,10 +64,12 @@ export default function Login() {
       setError("Signup failed. Please try again.");
       setSignupSuccess(false);
     }
+    setLoading(false);
   }
 
   return (
     <div className={styles.login}>
+      {loading ? <Loading /> : null}
       <h1>Carbon Footprint Tracker</h1>
       <form
         className={styles.form}
@@ -87,7 +94,7 @@ export default function Login() {
         </button>
       </form>
 
-      <div>
+      <div className="h-2">
         {signupSuccess && (
           <p className={styles.signupSuccess}>
             Signup successful. Please login with your new credentials.
