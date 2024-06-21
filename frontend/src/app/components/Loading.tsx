@@ -1,11 +1,11 @@
 import React from "react";
-import styles from "../login/login.module.css";
+import "../globals.css";
 export default function Loading() {
   return (
-    <div className={styles.loadingDiv}>
-      <svg className={styles.spinner} viewBox="0 0 50 50">
+    <div className="loadingDiv">
+      <svg className="spinner" viewBox="0 0 50 50">
         <circle
-          className={styles.path}
+          className="path"
           cx={25}
           cy={25}
           r={20}

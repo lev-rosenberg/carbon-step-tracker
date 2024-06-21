@@ -43,7 +43,6 @@ export default function TravelForm() {
           <option value="car">Car</option>
           <option value="bus">Bus</option>
           <option value="train">Train</option>
-          <option value="plane">Plane</option>
         </select>
       </div>
       <div className={styles.formSection}>
